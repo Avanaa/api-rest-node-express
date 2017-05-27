@@ -1,5 +1,5 @@
 module.exports = function(app){
-        
+
     app.get('/dominio', function(req, res){
         var connection = app.persistence.connectionFactory();
         var dao = new app.dao.DominioDao(connection);

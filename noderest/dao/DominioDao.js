@@ -3,8 +3,7 @@ function DominioDao(connection){
 }
 
 DominioDao.prototype.getAll = function(callback){
-    this.connection.query('SELECT * FROM DOMINIO_VIEW'
-        +' ON ID_TAXONOMIA = T.ID',
+    this.connection.query('SELECT * FROM DOMINIO_VIEW',
         callback);
 }
 
