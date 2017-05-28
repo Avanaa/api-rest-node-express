@@ -9,25 +9,25 @@ ClasseDao.prototype.getAll = function(callback){
 
 ClasseDao.prototype.getByTaxonomia = function(taxonomia, callback){
     this.connection.query('SELECT * FROM CLASSE_VIEW' 
-        +' WHERE C.ID_DOMINIO IN (SELECT ID FROM DOMINIO WHERE ID_TAXONOMIA = ?)',
+        +' WHERE ID_DOMINIO IN (SELECT ID FROM DOMINIO WHERE ID_TAXONOMIA = ?)',
         taxonomia.id, callback);
 }
 
 ClasseDao.prototype.getByDominio = function(dominio, callback){
     this.connection.query('SELECT * FROM CLASSE_VIEW'
-        +' WHERE C.ID_DOMINIO = ?',
+        +' WHERE ID_DOMINIO = ?',
         dominio.id, callback);
 }
 
 ClasseDao.prototype.getByClasse = function(classe, callback){
     this.connection.query('SELECT * FROM CLASSE_VIEW'
-        +' WHERE C.ID = ?',
+        +' WHERE ID = ?',
         classe.id, callback);
 }
 
 ClasseDao.prototype.getByDiagnostico = function(diagnostico, callback){
     this.connection.query('SELECT * FROM CLASSE_VIEW' 
-        +' WHERE C.ID = (SELECT ID_CLASSE FROM DIAGNOSTICO WHERE ID = ?)',
+        +' WHERE ID = (SELECT ID_CLASSE FROM DIAGNOSTICO WHERE ID = ?)',
         diagnostico.id, callback);
 }
 
